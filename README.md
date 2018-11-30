@@ -7,7 +7,7 @@ We're using Swing forms, which are just XML documents that lay out the design of
 Using forms should make things easier because IDE's like IntelliJ and Eclipse have built in tools for editing them.
 This way we can lay things out in more of a drag-n-drop kind of way, rather than hard coding our alignments and such in Java code.
 This is the way people would do this in real life - it's generally frowned upon to hard code all your GUI elements.
-Prof. Yang doesn't seem to know this exists, so we're not gonna get much help from him here. Google will be our friends.
+Prof. Yang doesn't seem to know this exists, so we're not gonna get much help from him here. Google will be our friend.
 
 Let me know if you're having trouble getting things to work.
 
