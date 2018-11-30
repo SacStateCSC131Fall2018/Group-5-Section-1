@@ -1,7 +1,7 @@
 Pirex
 -----
 
-## We're using Swing forms
+## Swing forms
 
 We're using Swing forms, which are just XML documents that lay out the design of the GUI.
 Using forms should make things easier because IDE's like IntelliJ and Eclipse have built in tools for editing them.
