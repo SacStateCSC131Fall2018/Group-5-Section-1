@@ -3,4 +3,8 @@
 Pirex.iml
 out
 
+# Eclipse
+bin
+.classpath
+.project
 
