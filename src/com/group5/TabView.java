@@ -12,7 +12,10 @@ public class TabView extends JPanel
         JTabbedPane tabbedPane = new JTabbedPane();
 
         JPanel searchPanel = new SearchView();
+        JPanel loadDocsPanel = new LoadDocumentsView();
+        
         tabbedPane.addTab("Search Documents", searchPanel);
+        tabbedPane.addTab("Load Documents", loadDocsPanel);
         add(tabbedPane);
     }
 }
