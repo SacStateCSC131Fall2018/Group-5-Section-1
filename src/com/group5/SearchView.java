@@ -19,6 +19,8 @@ public class SearchView extends JPanel
     	buildSummaryText();
     	buildResultsFound();
     	buildOpusText();
+    	JButton remove = new JButton("Remore Opus");
+    	add(remove);
     }
     
     private void buildSummaryText() {
@@ -33,13 +35,19 @@ public class SearchView extends JPanel
     
     
     private void buildResultsFound() {
+    	JPanel panel = new JPanel();
+    	panel.setLayout(new FlowLayout());
     	resultsFound = new JTextField("Retrieved 1 document");
     	resultsFound.setBorder(null);
     	resultsFound.setBackground(null);
     	resultsFound.setPreferredSize(new Dimension(750, 50));
     	resultsFound.setMaximumSize( resultsFound.getPreferredSize() );
     	resultsFound.setEditable(false);
-    	add(resultsFound);
+
+    	panel.add(resultsFound);
+    	
+    	add(panel);
+    	
     }
     
     private void buildOpusText() {//builds the opus text field
