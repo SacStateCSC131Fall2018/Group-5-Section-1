@@ -19,7 +19,7 @@ public class MainWindow extends JFrame {
 		File.addSeparator();
 		File.add(Options_Sub);
 		File.addSeparator();
-		Export = new JMenuItem("xport");
+		Export = new JMenuItem("Export");
 		File.add(Export);
 		menuBar.add(File);
 		setJMenuBar(menuBar);
