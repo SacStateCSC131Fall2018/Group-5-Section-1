@@ -21,6 +21,8 @@ public class MainWindow extends JFrame {
 		File.addSeparator();
 		Export = new JMenuItem("Export");
 		File.add(Export);
+		File.add(new JMenuItem("Save"));
+		File.add(new JMenuItem("Exit"));
 		menuBar.add(File);
 		setJMenuBar(menuBar);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
