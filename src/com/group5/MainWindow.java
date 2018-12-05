@@ -26,7 +26,7 @@ public class MainWindow extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		System.out.println("Hello");
 		setSize(800, 600);
-
+		System.out.print("sa");
 		Container contentPane = getContentPane();
 
 		TabView tabView = new TabView();
