@@ -12,19 +12,31 @@ public class LoadDocumentsView extends JPanel
 		setAlignmentX(LEFT_ALIGNMENT);
 		buildTextFilePanel();
 		buildFileTypePanel();
-		buildTitleAuthorPanel();
+
+		// Create Title and Author prompts
+		JPanel titleAuthorPromptPanel = buildFlowPanel();
+		addPromptField("Title", titleAuthorPromptPanel);
+		addPromptField("Author", titleAuthorPromptPanel);
+		add(titleAuthorPromptPanel);
+
 		addLine();
 		addProcess();
 		buildTextArea();
 	}
+
+	private JPanel buildFlowPanel()
+    {
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        return panel;
+    }
 
     /**
      * Builds a field to take in the file path
      */
 	private void buildTextFilePanel()
     {
-		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JPanel panel = buildFlowPanel();
 		JTextField prompt = new JTextField("Text File: ");
 		prompt.setBorder(null);
     	prompt.setBackground(null);
@@ -42,8 +54,7 @@ public class LoadDocumentsView extends JPanel
      */
     private void buildFileTypePanel()
     {
-		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JPanel panel = buildFlowPanel();
 		JTextField prompt = new JTextField("Text File Type: ");
 		prompt.setBorder(null);
     	prompt.setBackground(null);
@@ -57,37 +68,27 @@ public class LoadDocumentsView extends JPanel
 	}
 
     /**
-     * Builds title and author input fields
+     * Builds a prompt field and adds it to the given panel
+     * @param promptText The text to display at the prompt
+     * @param panel The panel to add the prompt to
      */
-	private void buildTitleAuthorPanel()
+	private void addPromptField(String promptText, JPanel panel)
     {
-		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JTextField prompt = new JTextField("Title: ");
-		prompt.setBorder(null);
-    	prompt.setBackground(null);
-    	panel.add(prompt);
-    	JTextField titleSpace = new JTextField();
-    	titleSpace.setPreferredSize(new Dimension(300, 25));
-    	panel.add(titleSpace);
-    	JTextField prompt2 = new JTextField("Author: ");
-		prompt2.setBorder(null);
-    	prompt2.setBackground(null);
-    	panel.add(prompt2);
-    	JTextField authorSpace = new JTextField();
-    	authorSpace.setPreferredSize(new Dimension(300, 25));
-    	panel.add(authorSpace);
-    	//panel.setAlignmentX(RIGHT_ALIGNMENT);
-    	add(panel);
-	}
+        JTextField prompt = new JTextField(promptText+ ": ");
+        prompt.setBorder(null);
+        prompt.setBackground(null);
+        panel.add(prompt);
+        JTextField promptSpace = new JTextField();
+        promptSpace.setPreferredSize(new Dimension(300, 25));
+        panel.add(promptSpace);
+    }
 
     /**
      * Adds a line separator
      */
 	private void addLine()
     {
-		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JPanel panel = buildFlowPanel();
 		String _101underscores = new String(new char[101]).replace("\0", "_");
 		JTextField line = new JTextField(_101underscores);
 		line.setPreferredSize(new Dimension(700, 25));
@@ -102,8 +103,7 @@ public class LoadDocumentsView extends JPanel
      */
 	private void addProcess()
     {
-		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+		JPanel panel = buildFlowPanel();
 		JButton process = new JButton("Process");
 		panel.add(process);
 		add(panel);
