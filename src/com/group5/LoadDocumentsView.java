@@ -6,7 +6,8 @@ import java.awt.*;
 public class LoadDocumentsView extends JPanel {
 	public LoadDocumentsView(){
 		super();
-		setLayout(new BoxLayout(this, 1));
+		setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+		setAlignmentX(LEFT_ALIGNMENT);
 		buildTextFilePanel();
 		buildFileTypePanel();
 		buildTitleAuthorPanel();
@@ -17,7 +18,7 @@ public class LoadDocumentsView extends JPanel {
 	
 	private void buildTextFilePanel() {//field to take in file path
 		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout());
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JTextField prompt = new JTextField("Text File: ");
 		prompt.setBorder(null);
     	prompt.setBackground(null);
@@ -32,22 +33,22 @@ public class LoadDocumentsView extends JPanel {
 	
 	private void buildFileTypePanel() {//pull down for file type
 		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout());
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JTextField prompt = new JTextField("Text File Type: ");
 		prompt.setBorder(null);
     	prompt.setBackground(null);
     	panel.add(prompt);
     	String [] choices = {"Project Gutenburg File"};
     	JComboBox<String> pullDown = new JComboBox<String>(choices);
-    	pullDown.setPreferredSize(new Dimension(600, 25));
+    	pullDown.setPreferredSize(new Dimension(650, 25));
     	pullDown.setBackground(Color.WHITE);
     	panel.add(pullDown);
     	add(panel);
 	}
 	
-	private void buildTitleAuthorPanel() {//sets up the author and title input field needs to be left justified
+	private void buildTitleAuthorPanel() {//sets up the author and title input field
 		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout());
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JTextField prompt = new JTextField("Title: ");
 		prompt.setBorder(null);
     	prompt.setBackground(null);
@@ -68,7 +69,7 @@ public class LoadDocumentsView extends JPanel {
 	
 	private void addLine() {//adds a line seperator
 		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout());
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JTextField line = new JTextField("_____________________________________________________________________________________________________");
 		line.setPreferredSize(new Dimension(700, 25));
 		line.setBackground(null);
@@ -77,10 +78,9 @@ public class LoadDocumentsView extends JPanel {
 		add(panel);
 	}
 	
-	private void addProcess() {//adds the process button, needs to be left justified
+	private void addProcess() {//adds the process button
 		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout());
-		panel.setAlignmentX(RIGHT_ALIGNMENT);
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JButton process = new JButton("Process");
 		panel.add(process);
 		add(panel);
