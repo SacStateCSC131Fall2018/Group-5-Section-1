@@ -3,10 +3,12 @@ package com.group5;
 import javax.swing.*;
 import java.awt.*;
 
-public class LoadDocumentsView extends JPanel {
-	public LoadDocumentsView(){
+public class LoadDocumentsView extends JPanel
+{
+	public LoadDocumentsView()
+    {
 		super();
-		setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setAlignmentX(LEFT_ALIGNMENT);
 		buildTextFilePanel();
 		buildFileTypePanel();
@@ -15,8 +17,12 @@ public class LoadDocumentsView extends JPanel {
 		addProcess();
 		buildTextArea();
 	}
-	
-	private void buildTextFilePanel() {//field to take in file path
+
+    /**
+     * Builds a field to take in the file path
+     */
+	private void buildTextFilePanel()
+    {
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JTextField prompt = new JTextField("Text File: ");
@@ -30,8 +36,12 @@ public class LoadDocumentsView extends JPanel {
     	panel.add(browse);
     	add(panel);
 	}
-	
-	private void buildFileTypePanel() {//pull down for file type
+
+    /**
+     * Builds a pull down menu for the file type
+     */
+    private void buildFileTypePanel()
+    {
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JTextField prompt = new JTextField("Text File Type: ");
@@ -39,14 +49,18 @@ public class LoadDocumentsView extends JPanel {
     	prompt.setBackground(null);
     	panel.add(prompt);
     	String [] choices = {"Project Gutenburg File"};
-    	JComboBox<String> pullDown = new JComboBox<String>(choices);
+    	JComboBox<String> pullDown = new JComboBox<>(choices);
     	pullDown.setPreferredSize(new Dimension(650, 25));
     	pullDown.setBackground(Color.WHITE);
     	panel.add(pullDown);
     	add(panel);
 	}
-	
-	private void buildTitleAuthorPanel() {//sets up the author and title input field
+
+    /**
+     * Builds title and author input fields
+     */
+	private void buildTitleAuthorPanel()
+    {
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JTextField prompt = new JTextField("Title: ");
@@ -66,27 +80,41 @@ public class LoadDocumentsView extends JPanel {
     	//panel.setAlignmentX(RIGHT_ALIGNMENT);
     	add(panel);
 	}
-	
-	private void addLine() {//adds a line seperator
+
+    /**
+     * Adds a line separator
+     */
+	private void addLine()
+    {
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
-		JTextField line = new JTextField("_____________________________________________________________________________________________________");
+		String _101underscores = new String(new char[101]).replace("\0", "_");
+		JTextField line = new JTextField(_101underscores);
 		line.setPreferredSize(new Dimension(700, 25));
 		line.setBackground(null);
 		line.setBorder(null);
 		panel.add(line);
 		add(panel);
 	}
-	
-	private void addProcess() {//adds the process button
+
+    /**
+     * Add a process button
+     */
+	private void addProcess()
+    {
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JButton process = new JButton("Process");
 		panel.add(process);
 		add(panel);
 	}
-	
-	private void buildTextArea() {//text area needs more buffer space on the border
+
+    /**
+     * Creates a text area
+     */
+	private void buildTextArea()
+    {
+        // TODO: Text area needs more space on the border
 		JTextArea textArea = new JTextArea();
 		textArea.setLineWrap(true);
 		textArea.setBorder(BorderFactory.createEtchedBorder());

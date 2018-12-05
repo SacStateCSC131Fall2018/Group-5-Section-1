@@ -5,27 +5,36 @@ import java.awt.*;
 
 public class SearchView extends JPanel
 {
-	private JPanel queryBar;//will be the top bar that will hold user query and clear button
-	private JTextField resultsFound;//will display the number of results found
+	/**
+	 * The top bar that will hld the user query and clear button
+	 */
+	private JPanel queryBar;
+	/**
+	 * Displays the number of results found
+	 */
+	private JTextField resultsFound;
 	private JTextArea summaryText;
 	private JTextArea opusText;
-	//private ActionListener listener; just in case someone wants to add functionality
-    
-	public SearchView()//builds the view
+
+	public SearchView()
     {
     	super();
-    	setLayout(new BoxLayout(this, 1));
+    	setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     	buildQueryBar();
     	buildSummaryText();
     	buildResultsFound();
     	buildOpusText();
-    	JButton remove = new JButton("Remore Opus");
+    	JButton remove = new JButton("Remove Opus");
     	add(remove);
     }
     
-    private void buildSummaryText() {
-    	String output = String.format("%-30s %-22s %-8s %-50s\n","Author","Title","Page","Summary");
-    	output += String.format("%-20s %-12s %-10s %-50s\n","Charles Dickens","Bleak House","276","Blah blah blah");
+    private void buildSummaryText()
+	{
+    	String output = String.format("%-30s %-22s %-8s %-50s\n",
+									  "Author", "Title", "Page", "Summary");
+    	output += String.format("%-20s %-12s %-10s %-50s\n",
+								"Charles Dickens", "Bleak House", "276",
+								"Blah blah blah");
     	summaryText = new JTextArea();
     	summaryText.setText(output);
     	summaryText.setEditable(false);
@@ -34,7 +43,8 @@ public class SearchView extends JPanel
     }
     
     
-    private void buildResultsFound() {
+    private void buildResultsFound()
+	{
     	JPanel panel = new JPanel();
     	panel.setLayout(new FlowLayout());
     	resultsFound = new JTextField("Retrieved 1 document");
@@ -49,8 +59,12 @@ public class SearchView extends JPanel
     	add(panel);
     	
     }
-    
-    private void buildOpusText() {//builds the opus text field
+
+	/**
+	 * Builds the opus text field
+	 */
+	private void buildOpusText()
+	{
     	opusText = new JTextArea();
     	JScrollPane scrollPane = new JScrollPane(opusText);
     	scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -60,8 +74,12 @@ public class SearchView extends JPanel
     	opusText.setEditable(false);
     	add(scrollPane);
     }
-    
-    private void buildQueryBar() {//builds the query bar
+
+	/**
+	 * Builds the query bar
+	 */
+	private void buildQueryBar()
+	{
     	queryBar = new JPanel();
     	queryBar.setLayout(new FlowLayout(FlowLayout.LEFT));
     	JTextField prompt = new JTextField("Query: ");
@@ -76,5 +94,4 @@ public class SearchView extends JPanel
     	prompt.setEditable(false);
     	add(queryBar);
     }
-    
 }
