@@ -10,18 +10,67 @@ public class LoadDocumentsView extends JPanel
 		super();
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		setAlignmentX(LEFT_ALIGNMENT);
-		buildTextFilePanel();
-		buildFileTypePanel();
+
+		// Build text file prompt panel
+        {
+            JPanel panel = buildFlowPanel();
+
+            addPromptField("Text File", 600, panel);
+
+            panel.add(new JButton("Browse"));
+
+            add(panel);
+        }
+
+        // Build file type panel
+        {
+            JPanel panel = buildFlowPanel();
+
+            panel.add(new JLabel("Text File Type: "));
+
+            // Add pull-down menu
+            String[] choices = { "Project Gutenberg File" };
+            JComboBox<String> pullDown = new JComboBox<>(choices);
+            pullDown.setPreferredSize(new Dimension(650, 25));
+            pullDown.setBackground(Color.WHITE);
+            panel.add(pullDown);
+
+            add(panel);
+        }
 
 		// Create Title and Author prompts
-		JPanel titleAuthorPromptPanel = buildFlowPanel();
-		addPromptField("Title", titleAuthorPromptPanel);
-		addPromptField("Author", titleAuthorPromptPanel);
-		add(titleAuthorPromptPanel);
+        {
+            JPanel panel = buildFlowPanel();
+            addPromptField("Title", 300, panel);
+            addPromptField("Author", 300, panel);
+            add(panel);
+        }
 
-		addLine();
-		addProcess();
-		buildTextArea();
+        // Create horizontal separator line
+        {
+            JPanel panel = buildFlowPanel();
+            String underscores = new String(new char[130]).replace("\0", "_");
+            JLabel line = new JLabel(underscores);
+            line.setPreferredSize(new Dimension(900, 25));
+            panel.add(line);
+            add(panel);
+        }
+
+        // Add process button
+        {
+            JPanel panel = buildFlowPanel();
+            panel.add(new JButton("Process"));
+            add(panel);
+        }
+
+        // Build text area
+        {
+            // TODO: Text area needs more space on border
+            JTextArea textArea = new JTextArea();
+            textArea.setLineWrap(true);
+            textArea.setBorder(BorderFactory.createEtchedBorder());
+            add(textArea);
+        }
 	}
 
 	private JPanel buildFlowPanel()
@@ -32,83 +81,15 @@ public class LoadDocumentsView extends JPanel
     }
 
     /**
-     * Builds a field to take in the file path
-     */
-	private void buildTextFilePanel()
-    {
-		JPanel panel = buildFlowPanel();
-    	panel.add(new JLabel("Text File: "));
-    	JTextField file = new JTextField();
-    	file.setPreferredSize(new Dimension(600, 25));
-    	panel.add(file);
-    	JButton browse = new JButton("Browse");
-    	panel.add(browse);
-    	add(panel);
-	}
-
-    /**
-     * Builds a pull down menu for the file type
-     */
-    private void buildFileTypePanel()
-    {
-		JPanel panel = buildFlowPanel();
-    	panel.add(new JLabel("Text File Type: "));
-    	String [] choices = {"Project Gutenburg File"};
-    	JComboBox<String> pullDown = new JComboBox<>(choices);
-    	pullDown.setPreferredSize(new Dimension(650, 25));
-    	pullDown.setBackground(Color.WHITE);
-    	panel.add(pullDown);
-    	add(panel);
-	}
-
-    /**
      * Builds a prompt field and adds it to the given panel
      * @param promptText The text to display at the prompt
      * @param panel The panel to add the prompt to
      */
-	private void addPromptField(String promptText, JPanel panel)
+	private void addPromptField(String promptText, int size, JPanel panel)
     {
         panel.add(new JLabel(promptText + ": "));
         JTextField promptSpace = new JTextField();
-        promptSpace.setPreferredSize(new Dimension(300, 25));
+        promptSpace.setPreferredSize(new Dimension(size, 25));
         panel.add(promptSpace);
     }
-
-    /**
-     * Adds a line separator
-     */
-	private void addLine()
-    {
-		JPanel panel = buildFlowPanel();
-		String _101underscores = new String(new char[101]).replace("\0", "_");
-		JTextField line = new JTextField(_101underscores);
-		line.setPreferredSize(new Dimension(700, 25));
-		line.setBackground(null);
-		line.setBorder(null);
-		panel.add(line);
-		add(panel);
-	}
-
-    /**
-     * Add a process button
-     */
-	private void addProcess()
-    {
-		JPanel panel = buildFlowPanel();
-		JButton process = new JButton("Process");
-		panel.add(process);
-		add(panel);
-	}
-
-    /**
-     * Creates a text area
-     */
-	private void buildTextArea()
-    {
-        // TODO: Text area needs more space on the border
-		JTextArea textArea = new JTextArea();
-		textArea.setLineWrap(true);
-		textArea.setBorder(BorderFactory.createEtchedBorder());
-		add(textArea);
-	}
 }
