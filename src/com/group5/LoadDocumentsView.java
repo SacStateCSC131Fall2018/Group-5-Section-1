@@ -37,10 +37,7 @@ public class LoadDocumentsView extends JPanel
 	private void buildTextFilePanel()
     {
 		JPanel panel = buildFlowPanel();
-		JTextField prompt = new JTextField("Text File: ");
-		prompt.setBorder(null);
-    	prompt.setBackground(null);
-    	panel.add(prompt);
+    	panel.add(new JLabel("Text File: "));
     	JTextField file = new JTextField();
     	file.setPreferredSize(new Dimension(600, 25));
     	panel.add(file);
@@ -55,10 +52,7 @@ public class LoadDocumentsView extends JPanel
     private void buildFileTypePanel()
     {
 		JPanel panel = buildFlowPanel();
-		JTextField prompt = new JTextField("Text File Type: ");
-		prompt.setBorder(null);
-    	prompt.setBackground(null);
-    	panel.add(prompt);
+    	panel.add(new JLabel("Text File Type: "));
     	String [] choices = {"Project Gutenburg File"};
     	JComboBox<String> pullDown = new JComboBox<>(choices);
     	pullDown.setPreferredSize(new Dimension(650, 25));
@@ -74,10 +68,7 @@ public class LoadDocumentsView extends JPanel
      */
 	private void addPromptField(String promptText, JPanel panel)
     {
-        JTextField prompt = new JTextField(promptText+ ": ");
-        prompt.setBorder(null);
-        prompt.setBackground(null);
-        panel.add(prompt);
+        panel.add(new JLabel(promptText + ": "));
         JTextField promptSpace = new JTextField();
         promptSpace.setPreferredSize(new Dimension(300, 25));
         panel.add(promptSpace);

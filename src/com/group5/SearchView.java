@@ -12,7 +12,7 @@ public class SearchView extends JPanel
 	/**
 	 * Displays the number of results found
 	 */
-	private JTextField resultsFound;
+	private JLabel resultsFound;
 	private JTextArea summaryText;
 	private JTextArea opusText;
 
@@ -47,17 +47,11 @@ public class SearchView extends JPanel
 	{
     	JPanel panel = new JPanel();
     	panel.setLayout(new FlowLayout());
-    	resultsFound = new JTextField("Retrieved 1 document");
-    	resultsFound.setBorder(null);
-    	resultsFound.setBackground(null);
+    	resultsFound = new JLabel("Retrieved 1 document");
     	resultsFound.setPreferredSize(new Dimension(750, 50));
     	resultsFound.setMaximumSize( resultsFound.getPreferredSize() );
-    	resultsFound.setEditable(false);
-
     	panel.add(resultsFound);
-    	
     	add(panel);
-    	
     }
 
 	/**
@@ -82,16 +76,12 @@ public class SearchView extends JPanel
 	{
     	queryBar = new JPanel();
     	queryBar.setLayout(new FlowLayout(FlowLayout.LEFT));
-    	JTextField prompt = new JTextField("Query: ");
-    	prompt.setBorder(null);
-    	prompt.setBackground(null);
-    	queryBar.add(prompt);
+    	queryBar.add(new JLabel("Query: "));
     	JTextField query = new JTextField();
     	query.setPreferredSize(new Dimension(600, 25));
     	queryBar.add(query);
     	JButton clear = new JButton("Clear");
     	queryBar.add(clear);
-    	prompt.setEditable(false);
     	add(queryBar);
     }
 }
