@@ -24,9 +24,7 @@ public class MainWindow extends JFrame {
 		menuBar.add(File);
 		setJMenuBar(menuBar);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		System.out.println("Hello");
 		setSize(800, 600);
-		System.out.print("sa");
 		Container contentPane = getContentPane();
 
 		TabView tabView = new TabView();
