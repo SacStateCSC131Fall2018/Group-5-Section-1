@@ -1,4 +1,4 @@
-package package1;
+package com.group5;
 
 import javax.swing.*;
 import java.awt.*;
