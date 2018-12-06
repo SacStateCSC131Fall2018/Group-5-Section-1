@@ -42,6 +42,19 @@ public class MainWindow extends JFrame {
 		menuBar.add(help);
 		//END HELP MENU ITEM
 		
+		//EXIT MENU ITEM
+		File.addSeparator();
+		JMenuItem JExit = new JMenuItem("Exit");
+		File.add(JExit);
+		JExit.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	System.exit(0);
+
+            }
+
+		});
+		//END EXIT MENU ITEM
+		
 		setJMenuBar(menuBar);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
