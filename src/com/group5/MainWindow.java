@@ -15,6 +15,9 @@ public class MainWindow extends JFrame {
 		Options_Sub.add(new JMenuItem("Sources"));
 		menuBar = new JMenuBar();
 		File = new JMenu("File");
+		
+		File.add(new JMenuItem("Save Query"));
+		
 		File.add(new JMenuItem("Load Query"));
 		File.addSeparator();
 		File.add(Options_Sub);
