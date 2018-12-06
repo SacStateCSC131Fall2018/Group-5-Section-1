@@ -6,6 +6,7 @@ import java.awt.event.*;
 public class MainWindow extends JFrame {
 	public MainWindow() {
 		super();
+		this.setIconImage(new ImageIcon(getClass().getResource("P.png")).getImage());
 		JMenuBar menuBar;
 		JMenu help, File;
 		JMenuItem Export;
@@ -57,9 +58,7 @@ public class MainWindow extends JFrame {
 		
 		setJMenuBar(menuBar);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
 		setSize(800, 600);
-
 		Container contentPane = getContentPane();
 
 		TabView tabView = new TabView();
