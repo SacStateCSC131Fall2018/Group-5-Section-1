@@ -13,7 +13,7 @@ public class TabView extends JPanel
 
         JPanel searchPanel = new SearchView();
         JPanel loadDocsPanel = new LoadDocumentsView();
-        JPanel summaryPabel = new SummaryView();
+        JPanel summaryPanel = new SummaryView();
         
         tabbedPane.addTab("Search Documents", searchPanel);
         tabbedPane.addTab("Load Documents", loadDocsPanel);
