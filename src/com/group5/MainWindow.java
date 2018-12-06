@@ -22,6 +22,13 @@ public class MainWindow extends JFrame {
 		Export = new JMenuItem("Export");
 		File.add(Export);
 		menuBar.add(File);
+		
+		//HELP MENU ITEM
+		help = new JMenu("Help");
+		help.add(new JMenuItem("About"));
+		menuBar.add(help);
+		//END HELP MENU ITEM
+		
 		setJMenuBar(menuBar);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
