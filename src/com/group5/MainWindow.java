@@ -10,24 +10,21 @@ public class MainWindow extends JFrame {
 		JMenuBar menuBar;
 		JMenu help, File;
 		JMenuItem Export;
-		JMenu Options_Sub;
+		JMenu options;
 
-		Options_Sub = new JMenu("Options");
-		Options_Sub.add(new JMenuItem("Documents"));
-		Options_Sub.add(new JMenuItem("Sources"));
+		options = new JMenu("Options");
+		options.add(new JMenuItem("Documents"));
+		options.add(new JMenuItem("Sources"));
 		menuBar = new JMenuBar();
 		File = new JMenu("File");
 
 		File.add(new JMenuItem("Save Query"));
 		
 		File.add(new JMenuItem("Load Query"));
-		File.addSeparator();
-		//File.add(Options_Sub);
-		File.addSeparator();
 		Export = new JMenuItem("Export");
 		File.add(Export);
 		menuBar.add(File);
-		menuBar.add(Options_Sub);
+		menuBar.add(options);
 		//HELP MENU ITEM
 		help = new JMenu("Help");
 		JMenuItem JAbout = new JMenuItem("About");
