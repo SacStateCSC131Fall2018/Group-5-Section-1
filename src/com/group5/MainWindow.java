@@ -22,12 +22,12 @@ public class MainWindow extends JFrame {
 		
 		File.add(new JMenuItem("Load Query"));
 		File.addSeparator();
-		File.add(Options_Sub);
+		//File.add(Options_Sub);
 		File.addSeparator();
 		Export = new JMenuItem("Export");
 		File.add(Export);
 		menuBar.add(File);
-		
+		menuBar.add(Options_Sub);
 		//HELP MENU ITEM
 		help = new JMenu("Help");
 		JMenuItem JAbout = new JMenuItem("About");
