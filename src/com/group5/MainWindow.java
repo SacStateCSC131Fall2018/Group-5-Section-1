@@ -5,6 +5,7 @@ import java.awt.*;
 public class MainWindow extends JFrame {
 	public MainWindow() {
 		super();
+		this.setIconImage(new ImageIcon(getClass().getResource("P.png")).getImage());
 		JMenuBar menuBar;
 		JMenu help, File;
 		JMenuItem Export;
